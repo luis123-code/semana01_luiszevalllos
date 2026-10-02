@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Documentos | TaskFlow</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --dark: #111827;
+            --text: #1f2937;
+            --muted: #6b7280;
+            --bg: #f5f7fb;
+            --white: #ffffff;
+            --border: #e5e7eb;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        .container {
+            width: min(1100px, 92%);
+            margin: auto;
+        }
+
+        /* NAVBAR */
+
+        header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .navbar {
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--dark);
+        }
+
+        .logo-icon {
+            width: 38px;
+            height: 38px;
+            background: var(--primary);
+            color: white;
+            border-radius: 10px;
+            display: grid;
+            place-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--muted);
+            font-size: 14px;
+            transition: .2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* HERO */
+
+        .hero {
+            text-align: center;
+            padding: 65px 20px 40px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+
+        .hero p {
+            color: var(--muted);
+            max-width: 600px;
+            margin: auto;
+            line-height: 1.7;
+        }
+
+        /* PDF VIEWER */
+
+        .pdf-section {
+            padding-bottom: 70px;
+        }
+
+        .pdf-container {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .05);
+        }
+
+        .pdf-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .pdf-header h2 {
+            font-size: 24px;
+            color: var(--dark);
+        }
+
+        .pdf-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .action-btn {
+            border: 1px solid var(--border);
+            background: white;
+            padding: 10px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text);
+            transition: .2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .action-btn:hover {
+            background: #f3f4f6;
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .action-btn.primary {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .action-btn.primary:hover {
+            background: var(--primary-dark);
+        }
+
+        .pdf-wrapper {
+            width: 100%;
+            height: 700px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #f3f4f6;
+            border: 1px solid var(--border);
+        }
+
+        .pdf-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .pdf-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted);
+        }
+
+        .pdf-placeholder-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        .pdf-placeholder h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .pdf-placeholder p {
+            font-size: 14px;
+            max-width: 400px;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        /* INFO SECTION */
+
+        .info-section {
+            margin-top: 30px;
+            padding: 25px;
+            background: #eef2ff;
+            border-radius: 12px;
+            border: 1px solid #c7d2fe;
+        }
+
+        .info-section h3 {
+            font-size: 18px;
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+
+        .info-section p {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        footer {
+            background: var(--dark);
+            color: #9ca3af;
+            text-align: center;
+            padding: 25px;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 750px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .pdf-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .pdf-wrapper {
+                height: 500px;
+            }
+
+            .pdf-actions {
+                width: 100%;
+                flex-wrap: wrap;
+            }
+
+            .action-btn {
+                flex: 1;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="container navbar">
+
+        <div class="logo">
+            <div class="logo-icon">✓</div>
+            TaskFlow
+        </div>
+
+        <nav class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="visionMison.html">Misión y Visión</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="documentos.html" style="color: var(--primary);">Documentos</a>
+        </nav>
+
+    </div>
+
+</header>
+
+
+<section class="hero">
+
+    <h1>Documentos</h1>
+
+    <p>
+        Visualiza y descarga nuestros documentos oficiales en formato PDF.
+    </p>
+
+</section>
+
+
+<main class="container pdf-section">
+
+    <div class="pdf-container">
+
+        <div class="pdf-header">
+
+            <h2>Documento Principal</h2>
+
+            <div class="pdf-actions">
+                <button class="action-btn" onclick="window.print()">
+                    🖨 Imprimir
+                </button>
+                <button class="action-btn primary" onclick="downloadPDF()">
+                    ⬇ Descargar
+                </button>
+            </div>
+
+        </div>
+
+        <div class="pdf-wrapper">
+
+            <iframe
+                src="documento.pdf"
+                id="pdfFrame"
+                type="application/pdf">
+            </iframe>
+
+        </div>
+
+        <div class="info-section">
+            <h3>ℹ️ Información del documento</h3>
+            <p>
+                Este documento contiene información relevante sobre el proyecto.
+                Puedes visualizarlo directamente en esta página o descargarlo para
+                su consulta offline. Si tienes alguna pregunta sobre el contenido,
+                no dudes en contactarnos.
+            </p>
+        </div>
+
+    </div>
+
+</main>
+
+
+<footer>
+    © 2026 TaskFlow. Todos los derechos reservados.
+</footer>
+
+
+<script>
+    function downloadPDF() {
+        const iframe = document.getElementById('pdfFrame');
+        const pdfUrl = iframe.src;
+
+        const link = document.createElement('a');
+        link.href = pdfUrl;
+        link.download = 'documento.pdf';
+        link.target = '_blank';
+        link.click();
+    }
+
+    // Manejar error si el PDF no carga
+    document.getElementById('pdfFrame').onerror = function() {
+        this.style.display = 'none';
+        const wrapper = this.parentElement;
+        wrapper.innerHTML = `
+            <div class="pdf-placeholder">
+                <div class="pdf-placeholder-icon">📄</div>
+                <h3>Documento no disponible</h3>
+                <p>El documento PDF no se pudo cargar. Asegúrate de que el archivo "documento.pdf" exista en el directorio del proyecto.</p>
+            </div>
+        `;
+    };
+</script>
+
+</body>
+</html>

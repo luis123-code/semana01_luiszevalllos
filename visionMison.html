@@ -290,6 +290,48 @@
             font-weight: bold;
         }
 
+        /* METRICS */
+
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .metric-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .06);
+            text-align: center;
+        }
+
+        .metric-icon {
+            width: 50px;
+            height: 50px;
+            display: grid;
+            place-items: center;
+            border-radius: 12px;
+            background: #eef2ff;
+            color: var(--primary);
+            font-size: 24px;
+            margin: 0 auto 15px;
+        }
+
+        .metric-value {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .metric-label {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
 
         footer {
             background: var(--dark);
@@ -359,12 +401,16 @@
                 Inicio
             </a>
 
-            <a href="mision-vision.html">
+            <a href="visionMison.html">
                 Misión y Visión
             </a>
 
             <a href="contacto.html">
                 Contacto
+            </a>
+
+            <a href="documentos.html">
+                Documentos
             </a>
 
         </nav>
@@ -535,6 +581,30 @@
 
     </section>
 
+
+
+    <!-- METRICS -->
+    <section class="container metrics">
+
+        <div class="metric-card">
+            <div class="metric-icon">📋</div>
+            <div class="metric-value">2</div>
+            <div class="metric-label">Páginas creadas</div>
+        </div>
+
+        <div class="metric-card">
+            <div class="metric-icon">✓</div>
+            <div class="metric-value">2</div>
+            <div class="metric-label">Proyectos completados</div>
+        </div>
+
+        <div class="metric-card">
+            <div class="metric-icon">🎯</div>
+            <div class="metric-value">100%</div>
+            <div class="metric-label">Progreso total</div>
+        </div>
+
+    </section>
 
 
     <!-- CTA -->
